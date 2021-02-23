@@ -1,0 +1,33 @@
+.Login {
+
+    .logo {
+        margin-bottom: 2.25rem;
+    }
+
+    .loginError {
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 1rem;
+            top: -.5rem;
+            width: 0; 
+            height: 0; 
+            border-left: .5rem solid transparent;
+            border-right: .5rem solid transparent;
+            border-bottom: .5rem solid rgba(255, 255, 255, 0.4);;
+        }
+
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(2px);
+        border-radius: 4px;
+        position: relative;
+        margin-top: 1.5rem;
+
+        color: #FFF;
+        font-weight: 700;
+        font-size: 1rem;
+    }
+
+}

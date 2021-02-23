@@ -1,0 +1,200 @@
+.BooksList {
+
+    header {
+        padding: 2.5rem 0;
+    }
+
+    .paginator {
+        margin: 1rem 0;
+        font-size: .75rem;
+        text-align: right;
+
+
+        .paginatorText {
+            display: inline-block;
+            margin-right: .5rem;
+        }
+    }
+
+    .modal {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(2px);
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        align-content:  center;
+        align-items: center;
+        overflow: auto;
+        transition: all 0.25s ease;
+        
+        &.modalNone {
+            display: none;
+        }
+        
+        .modalButton {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .modalClick {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .modalContent {
+            background: #FFFFFF;
+            box-shadow: 0px 16px 80px rgba(0, 0, 0, 0.32);
+            border-radius: 4px;
+            padding: 0.5rem;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 768px;
+            min-height: 540px;
+
+            display: flex;
+            flex-direction: row;
+            transition: all 0.25s ease;
+
+            & > div{
+                margin: 2rem;
+                width: 100%;
+            }
+
+            .bookCover {
+                max-width: 350px;
+                align-items: center;
+        
+                img {
+                    filter: drop-shadow(0px 12px 18px rgba(0, 0, 0, 0.3));
+                }
+            }
+        
+            .bookContents {
+        
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                
+                p {
+                    color: var(--secondary-font-color);
+                    font-size: .75rem;
+                    line-height: 1.25rem;
+
+                    &::before {
+                        content: "";
+                        width: 18px;
+                        height: 15px;
+                        background: url(../../assets/quotes.svg);
+                        display: inline-block;
+                        margin-right: .3rem;
+                        vertical-align: text-top;
+                    }
+                }
+        
+                h2 {
+                    margin: 0;
+                    font-size: 1.75rem;
+                    line-height: 2.5rem;
+                    font-weight: 500;
+        
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2; 
+                    -webkit-box-orient: vertical;
+                }
+
+                h3 {
+                    font-size: .75rem;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                }
+        
+                .authors {
+                    color: var(--primary-color);
+                    font-weight: 400;
+                    font-size: .75rem;
+                    line-height: 1rem;
+                }
+        
+                .infos {
+                    margin: 0;
+                    padding: 0;
+                    font-size: .75rem;
+                    line-height: 1.25rem;
+
+                    dt, dd {
+                        margin: 0;
+                        width: 50%;
+                        display: inline-block;
+                    }
+
+                    dt {
+                        font-weight: 500;
+                    }
+
+                    dd {
+                        font-weight: 400;
+                        text-align: right;
+                        color: var(--secondary-font-color);
+                    }
+        
+                }
+        
+            }
+        }
+
+        &.modalHidden {
+            opacity: 0;
+            
+            .modalContent {
+                transform: translate(0px, -350px);
+                opacity: 0;
+            }
+        }
+    
+        &.modalVisible {
+            opacity: 1;
+            
+            .modalContent {
+                transform: translate(0px, 0px);
+                opacity: 1;
+            }
+        }
+
+        @media only screen and (max-width: 48em) {
+
+            align-items: baseline;
+
+            .modalContent {
+                width: calc(100% - 2rem);
+                flex-direction: column;
+                padding: 1rem;
+                margin: 4rem 0 1rem 0;
+                
+                .bookCover, .bookContents {
+                    margin: 0;
+                }
+
+                .bookCover {
+                    margin: 0 auto;
+                    margin-bottom: 1rem;
+                }
+
+                .bookContents > div {
+                    margin: .5rem 0;
+                }
+            }
+
+        }
+    }
+
+
+}
